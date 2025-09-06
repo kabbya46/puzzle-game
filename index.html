@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Puzzle Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #1a1a2e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin: 20px 0;
+      font-size: clamp(20px, 5vw, 32px);
+    }
+    #puzzle {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 5px;
+      width: 90vw;
+      max-width: 400px;
+      height: 90vw;
+      max-height: 400px;
+    }
+    .tile {
+      background: #0f3460;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: clamp(16px, 6vw, 28px);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .tile:hover {
+      background: #16213e;
+    }
+    .empty {
+      background: #1a1a2e;
+      cursor: default;
+    }
+    #resetBtn {
+      margin: 20px;
+      padding: 10px 20px;
+      background: #e94560;
+      color: white;
+      border: none;
+      font-size: clamp(14px, 4vw, 18px);
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    #resetBtn:hover {
+      background: #ff2e63;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sliding Puzzle Game</h1>
+  <div id="puzzle"></div>
+  <button id="resetBtn">Shuffle</button>
+
+  <script>
+    const puzzle = document.getElementById("puzzle");
+    const resetBtn = document.getElementById("resetBtn");
+    let tiles = [];
+
+    function createPuzzle() {
+      puzzle.innerHTML = "";
+      tiles = [];
+      for (let i = 1; i <= 15; i++) {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+        tile.textContent = i;
+        tile.addEventListener("click", () => moveTile(i));
+        tile.addEventListener("touchstart", () => moveTile(i)); // touch support
+        tiles.push(tile);
+        puzzle.appendChild(tile);
+      }
+      const emptyTile = document.createElement("div");
+      emptyTile.classList.add("tile", "empty");
+      tiles.push(emptyTile);
+      puzzle.appendChild(emptyTile);
+    }
+
+    function moveTile(num) {
+      const index = tiles.findIndex(t => t.textContent == num);
+      const emptyIndex = tiles.findIndex(t => t.classList.contains("empty"));
+
+      const validMoves = [emptyIndex - 1, emptyIndex + 1, emptyIndex - 4, emptyIndex + 4];
+      if (validMoves.includes(index)) {
+        [tiles[index], tiles[emptyIndex]] = [tiles[emptyIndex], tiles[index]];
+        renderPuzzle();
+      }
+    }
+
+    function renderPuzzle() {
+      puzzle.innerHTML = "";
+      tiles.forEach(tile => puzzle.appendChild(tile));
+    }
+
+    function shufflePuzzle() {
+      for (let i = tiles.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
+      }
+      renderPuzzle();
+    }
+
+    resetBtn.addEventListener("click", shufflePuzzle);
+
+    createPuzzle();
+  </script>
+</body>
+</html>
