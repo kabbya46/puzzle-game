@@ -1,60 +1,41 @@
-# Sliding Puzzle Game
+# 🎮 Sliding Puzzle Game
 
-**A web-based sliding puzzle game built with [mention your tech stack, e.g., HTML, CSS, JavaScript, React, etc.].**
-
----
-
-## Table of Contents
-
-- [About](#about)  
-- [Demo](#demo)  
-- [Features](#features)  
-- [Getting Started](#getting-started)  
-  - [Installation](#installation)  
-  - [Usage](#usage)  
-- [Configuration](#configuration)  
-- [Controls](#controls)  
-- [Game Mechanics](#game-mechanics)  
-- [Contributing](#contributing)  
-- [Credits](#credits)  
-- [License](#license)
+A **4×4 sliding puzzle game** . Rearrange the numbered tiles into order by sliding them into the empty space. Works on **desktop and mobile devices**.  
 
 ---
 
-## About  
-Brief description of the game—what it does and why it's fun.  
-> **Example:**  
-"Sliding Puzzle Game is an interactive browser-based game where players rearrange tiles into the correct order by sliding them one by one into the empty space."
+## 🌐 Demo
+
+Play online: [Sliding Puzzle Game](https://kabbya46.github.io/puzzle-game/)
 
 ---
 
-## Demo  
-Include a link to the live game.  
-> **Example:**  
-**Live Version:** [Play the puzzle game here](https://kabbya46.github.io/puzzle-game/)
 
 ---
 
-## Features  
-List the main highlights of your game. Adapt or expand based on your implementation.  
-- Selectable board sizes (e.g., 3×3, 4×4, etc.)  
-- Shuffle and reset functionality  
-- Move counter and/or timer (if implemented)  
-- Mobile-friendly controls (touch swipe)  
-- Visual effects (animations, tile highlighting, etc.)  
-- Leaderboard or best-score tracking (if available)
+## ✨ Features
+
+- **4×4 Puzzle Grid** (16 tiles, 1 empty space)  
+- **Shuffle Button** to randomize tiles  
+- **Click & Touch Support** for desktop and mobile  
+- **Responsive Design** for all screen sizes  
+- **Smooth Hover & Click Animations**  
 
 ---
 
-## Getting Started
+## 🚀 How to Play
 
-### Installation  
-Explain how to set up locally.  
+1. **Move Tiles:** Click or tap a tile **adjacent** to the empty space to slide it.  
+2. **Shuffle:** Press the **Shuffle** button to start a new game.  
+3. **Goal:** Arrange tiles in **numerical order** from 1 to 15.  
+
+---
+
+## 💻 Getting Started
+
+### Installation
+Run locally with zero setup:
+
+1. Clone the repository:
 ```bash
-# Clone the repo
-git clone https://github.com/<your-username>/puzzle-game.git
-cd puzzle-game
-
-# (If using a local server)
-npm install      # if dependencies exist
-npm start        # to launch locally
+git clone https://github.com/kabbya46/puzzle-game.git
